@@ -1,0 +1,29 @@
+<div id="lora-widget"></div>
+<script defer>
+      (function () {
+        var scriptSrc = 'https://lora-sdk.belive.sg/widget/latest/widget.min.js';
+        var apiKey = 'Qqot6A7ghYaswg+ArIy7ml13QVjd7cPx6ZgNF49tNds='
+        
+        window.addEventListener('load', initLoraWidget);
+        function initLoraWidget(){
+           // Setup widget
+          var loraWidget = document.createElement('lora-widget');
+          loraWidget.style = '--primary: 43, 88%, 53%; --primary-foreground: 0, 0%, 0%; --live-show: 330, 43%, 97%;';
+          loraWidget.setAttribute('api-key', apiKey);
+          loraWidget.setAttribute('start-date','2024-06-26T12:00:00Z');
+          loraWidget.setAttribute("short-videos-playlists","269e7ed1-6740-4f22-cbd9-08dc7df4f829,e79e280d-dda5-41be-cbda-08dc7df4f829");
+
+          //Init script and widget
+          var scriptNode = document.createElement('script');
+          scriptNode['src'] = scriptSrc;
+          scriptNode.defer = true;
+          scriptNode.onload = function () {
+            console.log('script loaded')
+            var container = document.getElementById('lora-widget');
+            console.log('container', container)
+            if (container) container.appendChild(loraWidget);
+          };
+          document.body.appendChild(scriptNode);
+        }
+      })();
+</script>
